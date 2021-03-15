@@ -9,6 +9,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+
+                    <div class="mt-8 text-2xl">
+                        Panel de administración de eventos Babyshower
+                    </div>
+
+                    <div class="mt-6 text-gray-500">
+                        Aquí se listan todos los eventos Babyshower registrados. Para ver más detalles presiona el botón <b>"Ver Detalles"</b> al fnal de cada fila.
+                    </div>
+                </div>
+                <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                     <div class="mt-6 text-gray-500">
                         <div class="container mx-auto px-4 sm:px-8">
                             <div class="py-8">
@@ -63,7 +73,7 @@
                                                         </p>
                                                     </td>
                                                     <td>
-                                                        <a class="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-10 py-2 transition-colors" href="{{route('events.show',1)}}">Ver detalles</a>
+                                                        <a class="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-10 py-2 transition-colors" href="{{route('babyshowers.show',1)}}">Ver detalles</a>
                                                     </td>
                                                 </tr>
                                                

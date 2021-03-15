@@ -31,7 +31,7 @@
                                 </path>
                             </svg>
                             <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a
-                                    href="{{route('events.index')}}">Ver eventos creados</a></div>
+                                    href="{{route('babyshowers.index')}}">Ver eventos creados</a></div>
                         </div>
 
                         <div class="ml-12">

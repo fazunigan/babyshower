@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BabyshowerCreateRequest;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Babyshower;
 
-class EventsController extends Controller
+class BabyshowerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events.index');
+        return view('babyshower.index');
     }
 
     /**
@@ -32,9 +35,25 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BabyshowerCreateRequest $request)
     {
-        //
+        try {
+            //If data came valid fron BabyshowerRequest, i will
+            //only create all the fields
+            $new =  Babyshower::create($request->all());
+            $new -> linkShare = Str::uuid()->toString();
+            $new -> linkEdit = Str::uuid()->toString();
+            $new ->save();
+
+            $linkShare = $new -> linkShare;
+            $linkEdit = $new -> linkEdit;
+
+            $links = compact('linkShare', 'linkEdit');
+            return view('babyshower.links')->with($links);
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
