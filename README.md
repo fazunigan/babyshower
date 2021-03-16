@@ -1,11 +1,6 @@
-<p align="center"><a href="https://babytuto.com" target="_blank"><img src="https://s3.babytuto.com/565e454ba662a1a8794491dd3a4c942d.png"></a></p>
+# Babyshower app - Technical test for Babytuto.com
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p align="center"><a href="https://babytuto.com" target="_blank"><img src="https://s3.babytuto.com/565e454ba662a1a8794491dd3a4c942d.png"></a></p>
 
 ## About Babyshower 👼🏼
 
@@ -17,42 +12,56 @@ Babyshower is a web app to schedule a Babyshower event, choose the gifts you wou
 
 Organizing a Babyshower with us is very easy and fast.
 
-## Learning Laravel
+## tl;dr
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The demonstration is located in https://XXXXXXXXXXXXXXXXX.com
+To use the app, clone the git repository and run the commands in the "Development Enviroment" section.
+The project uses Laravel Sail, so running it on a Docker Container is very easy.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Running
 
-## Laravel Sponsors
+First of all, you have to clone the git repository, using
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+git clone fazunigan/babyshower
+```
 
-### Premium Partners
+Then, take the course of action depending of your environment.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+### Development Environment
 
-## Contributing
+As Babyshower is developed using the last version of Laravel, we recomend you to use Docker to run your development environment. Babyshower cames with Laravel Sail, so, to build your environment, simply run:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+php artisan sail:install    # Setup your .env file
+php artisan sail:publish    # Publish the docker files
+npm install && npm run dev  # Install and setup node modules
+./vendor/bin/sail up        # Brings your docker container to life!
+```
 
-## Code of Conduct
+### Production Environment
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The commands are basically the same, but changing the way than ```npm``` runs.
 
-## Security Vulnerabilities
+```
+php artisan sail:install    # Setup your .env file
+php artisan sail:publish    # Publish the docker files
+npm install && npm run prod # Install and setup node modules
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+To ease of deploy and installation on a production environment, we recommend you to use services like AWS ElasticBeanstalk or Laravel Forge.
 
-## License
+## Testing and CI/CD
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project was developed using the TDD method, so, it came with a ```.github``` directory used to run Github Actions, such as;
+
+- Unit test
+- Run linter
+- Evaluate Code Coverage
+- Deploy to AWS
+
+If you will use another repository provider different than Github, i HIGHLY RECOMMEND to use a CI/CD software to automatate this process (CI/CD), like Jenkins or Travis-CI.
+
+## Author
+
+This app was made by Felipe Zúñiga Núñez. Contact me via [fazunigan@gmail.com](mailto:fazunigan@gmail.com)

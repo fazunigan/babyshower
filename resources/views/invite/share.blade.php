@@ -125,8 +125,36 @@
 
         @media screen and (min-width: 480px) {
             form {
-                max-width: 480px;
+                max-width: 800px;
             }
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
         }
 
     </style>
@@ -135,30 +163,37 @@
         @csrf
         <img class="w-16 md:w-20 lg:w-30" src="{{ asset('/logo.png') }}" alt="">
         <hr>
-        <h1>¡Babyshower creado!</h1>
-        <p>A continuación te entregamos dos links; uno es el que debes compartir con tus amigos, y el otro es para
-            editar o añadir productos a tu fiesta.</p>
+        <h1>¡Te espero en mi Babyshower!<br>{{ $baby->name_bebe }}</h1>
+        <p>Mis papás, <b>{{ $baby->name_mama }}</b> y <b>{{ $baby->name_papa }}</b>, tienen una lista de regalos con
+            los
+            mejores productos de
+            <b>Babytuto.com</b>. ¡Pasa a verlos!
+        </p>
+        <hr>
 
 
-        <fieldset>
-            <legend><span class="number">1</span> Link para modificar tu fiesta</legend>
-            <p>Haz click en este link para añadir productos o modificar tu Babyshower. <b style="color:red">Recuerda no compartirlo con
-                    nadie.</b></p>
-            <p><a href="{{route('edit',$linkEdit)}}">{{route('edit',$linkEdit)}}</a></p>
+        <table id="customers">
+            <tr>
+                <th>Producto</th>
+                <th>Valor</th>
+                <th>Comprar</th>
+            </tr>
+            @foreach ($baby->products as $key => $product)
+                <tr>
+                    <td width="60%"><a href="{{$product->uri}}">{{$product->name}}</a></td>
+                    <td width="20%">${{number_format($product->price,0,',','.')}}</td>
+                    <td width="20%">
+                        @if($product->sold==0)
+                            <button>¡Comprar!</button>
+                        @else
+                            Producto vendido :(
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
 
-        </fieldset>
+        </table>
 
-        <fieldset>
-            <legend><span class="number">2</span> Link para compartir con tus amigos</legend>
-            <p>¡Este es el link que puedes enviar a tus amigos para que conozcan sobre tu fiesta! <b>¡Compártelo con
-                    todo el mundo!</b></p>
-            <a href="{{route('share',$linkShare)}}">{{route('share',$linkShare)}}</a>
-
-        </fieldset>
-
-
-
-        <button type="button" onclick="window.location.href = " {{ route('/') }}">Volver al inicio</button>
 
     </form>
 

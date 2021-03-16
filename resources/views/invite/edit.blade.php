@@ -135,30 +135,49 @@
         @csrf
         <img class="w-16 md:w-20 lg:w-30" src="{{ asset('/logo.png') }}" alt="">
         <hr>
-        <h1>¡Babyshower creado!</h1>
-        <p>A continuación te entregamos dos links; uno es el que debes compartir con tus amigos, y el otro es para
-            editar o añadir productos a tu fiesta.</p>
+        <h1>¡Bienvenidos!</h1>
+        <p>Desde este sistema podrás crear tu Babyshower y una lista de reagalos para ese día, con los mejores productos
+            de <b>Babytuto.com</b></p>
 
+        @if ($errors->any())
+            <div style="color: red;">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }} </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <fieldset>
-            <legend><span class="number">1</span> Link para modificar tu fiesta</legend>
-            <p>Haz click en este link para añadir productos o modificar tu Babyshower. <b style="color:red">Recuerda no compartirlo con
-                    nadie.</b></p>
-            <p><a href="{{route('edit',$linkEdit)}}">{{route('edit',$linkEdit)}}</a></p>
+            <legend><span class="number">1</span> Información de los papas</legend>
+            <label for="name_mama">Nombre de la mamá:</label>
+            <input type="text" id="name_mama" name="name_mama" required>
+
+            <label for="name_papa">Nombre del papá:</label>
+            <input type="text" id="name_papa" name="name_papa" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
 
         </fieldset>
 
         <fieldset>
-            <legend><span class="number">2</span> Link para compartir con tus amigos</legend>
-            <p>¡Este es el link que puedes enviar a tus amigos para que conozcan sobre tu fiesta! <b>¡Compártelo con
-                    todo el mundo!</b></p>
-            <a href="{{route('share',$linkShare)}}">{{route('share',$linkShare)}}</a>
+            <legend><span class="number">2</span> Información del bebe</legend>
+            <label for="name_bebe">Nombre del bebe:</label>
+            <input type="text" id="name_bebe" name="name_bebe" required>
+
+            <label for="birth_date">Fecha de nacimiento aprox.</label>
+            <input type="date" id="birth_date" name="birth_date" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}"
+                max="{{ Carbon\Carbon::now()->addMonths(4)->format('Y-m-d') }}" required>
+            <small style="color: #AAA" id="emailHelp" class="form-text text-muted">Para hacer el babyshower, debes tener
+                por lo menos 5 meses de embarazo</small>
 
         </fieldset>
 
 
 
-        <button type="button" onclick="window.location.href = " {{ route('/') }}">Volver al inicio</button>
+        <button type="submit">¡Crear mi Babyshower!</button>
 
     </form>
 
