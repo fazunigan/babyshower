@@ -57,9 +57,9 @@ jobs:
     - name: Deployment
       uses: appleboy/ssh-action@main
       with:
-        host: ${{ secrets.SSH_HOST }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        username: ${{ secrets.SSH_USERNAME }}
+        host: ${{ secrets.HOST }}
+        key: ${{ secrets.KEY }}
+        username: ${{ secrets.USERNAME }}
         script: |
           cd /var/www/laravel/
           git checkout -f 
