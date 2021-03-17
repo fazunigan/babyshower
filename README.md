@@ -14,9 +14,14 @@ Organizing a Babyshower with us is very easy and fast.
 
 ## tl;dr
 
-The demonstration is located in https://XXXXXXXXXXXXXXXXX.com
+The demonstration is located in https://babyshower-babytuto.herokuapp.com/
 To use the app, clone the git repository and run the commands in the "Development Enviroment" section.
 The project uses Laravel Sail, so running it on a Docker Container is very easy.
+
+## Some considerations
+
+- To list the products that will be shown to our clients, i have just selected a few ones from Babytuto.com, aproximately 10, to do what is required. For a real product, de best would be to connect to an API.
+- Even though it wasn't required, i have taken the liberty of build a administrator panel, to manage user accounts and events, and some sessions and authentication stuff.
 
 ## Running
 
@@ -30,7 +35,7 @@ Then, take the course of action depending of your environment.
 
 ### Development Environment
 
-As Babyshower is developed using the last version of Laravel, we recomend you to use Docker to run your development environment. Babyshower cames with Laravel Sail, so, to build your environment, simply run:
+As Babyshower is developed using the last version of Laravel, i recomend you to use Docker to run your development environment. Babyshower cames with Laravel Sail, so, to build your environment, simply run:
 
 ```
 php artisan sail:install    # Setup your .env file
@@ -49,7 +54,7 @@ php artisan sail:publish    # Publish the docker files
 npm install && npm run prod # Install and setup node modules
 ```
 
-To ease of deploy and installation on a production environment, we recommend you to use services like AWS ElasticBeanstalk or Laravel Forge.
+To ease of deploy and installation on a production environment, i recommend you to use services like AWS ElasticBeanstalk or Laravel Forge.
 
 ## Testing and CI/CD
 
@@ -58,7 +63,7 @@ This project was developed using the TDD method, so, it came with a ```.github``
 - Unit test
 - Run linter
 - Evaluate Code Coverage
-- Deploy to AWS
+- Deploy to Heroku
 
 If you will use another repository provider different than Github, i HIGHLY RECOMMEND to use a CI/CD software to automatate this process (CI/CD), like Jenkins or Travis-CI.
 
