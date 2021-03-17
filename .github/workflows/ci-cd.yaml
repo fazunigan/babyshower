@@ -72,13 +72,13 @@ jobs:
      - name: Copy dotenv file
        run: php -r "file_put_contents(__DIR__ . '/.env', '${{ secrets.DOT_ENV }}');"
  
-     - name: deploy to server
-        uses: AEnterprise/rsync-deploy@v1.0
-        env:
-          DEPLOY_KEY: ${{ KEY }}
-          ARGS: "-e -c -r --delete"
-          SERVER_PORT: 22
-          FOLDER: "./"
-          SERVER_IP: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          SERVER_DESTINATION: /var/www/laravel/
+     - name: Deploy
+       uses: AEnterprise/rsync-deploy@v1.0
+       env:
+         DEPLOY_KEY: ${{ secrets.KEY }}
+         ARGS: '-avzh --exclude=".*"'
+         SERVER_PORT: 22
+         FOLDER: "./"
+         SERVER_IP: ${{ secrets.HOST }}
+         USERNAME: ${{ secrets.USERNAME }}
+         SERVER_DESTINATION: "/var/www/laravel"
