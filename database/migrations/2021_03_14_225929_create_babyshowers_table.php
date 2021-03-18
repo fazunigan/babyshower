@@ -19,9 +19,11 @@ class CreateBabyshowersTable extends Migration
             $table->string('name_mama');
             $table->string('name_bebe');
             $table->string('birth_date');
+            $table->string('event_date');
             $table->string('email');
             $table->string('linkShare')->nullable();
             $table->string('linkEdit')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -125,8 +125,36 @@
 
         @media screen and (min-width: 480px) {
             form {
-                max-width: 480px;
+                max-width: 800px;
             }
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
         }
 
     </style>
@@ -135,52 +163,69 @@
         @csrf
         <img class="w-16 md:w-20 lg:w-30" src="{{ asset('/logo.png') }}" alt="">
         <hr>
-        <h1>¡Bienvenidos!</h1>
-        <p>Desde este sistema podrás crear tu Babyshower y una lista de reagalos para ese día, con los mejores productos
-            de <b>Babytuto.com</b></p>
+        <h1>Selecciona los productos que quieres en tu lista de deseos</h1>
+        <p>Puedes seleccionar cuantos productos quieras desde la mejor selección de
+            <b>Babytuto.com</b>.
+        </p>
+        <hr>
+        <table id="customers">
+            <tr>
+                <th colspan="3" style="text-align: center;">PRODUCTOS AÑADIDOS</th>
+            </tr>
+            <tr>
+                <th>Producto</th>
+                <th>Valor</th>
+                <th>Agregar</th>
+            </tr>
+            @foreach ($baby->products as $key => $product)
+                <tr>
+                    <td width="60%"><a href="https://www.babytuto.com/productos/{{ $product->uri }}"
+                            target="_blank">{{ $product->name }}</a></td>
+                    <td width="20%">${{ number_format($product->price, 0, ',', '.') }}</td>
+                    <td width="20%">
+                        <a href="{{ route('remove', [$product->id, $baby->linkEdit]) }}">Remover</button>
+                    </td>
+                </tr>
+            @endforeach
+            <tfoot>
+                <tr>
+                    <td><b>Total</b></td>
+                    <td><b>${{ number_format($baby->products->sum('price'), 0, ',', '.') }}</b></td>
+                    <td><b>{{ $baby->products->count() }} Productos</b></td>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+        <hr>
+        <br>
+        <table id="customers">
+            <tr>
+                <th colspan="3" style="text-align: center;">PRODUCTOS DISPONIBLES</th>
+            </tr>
+            <tr>
+                <th>Producto</th>
+                <th>Valor</th>
+                <th>Agregar</th>
+            </tr>
+            @foreach ($products as $key => $product)
+                <tr>
+                    <td width="60%"><a href="https://www.babytuto.com/productos/{{ $product->uri }}"
+                            target="_blank">{{ $product->name }}</a></td>
+                    <td width="20%">${{ number_format($product->price, 0, ',', '.') }}</td>
+                    <td width="20%">
+                        <a href="{{ route('add', [$product->id, $baby->linkEdit]) }}">¡Agregar!</button>
+                    </td>
+                </tr>
+            @endforeach
 
-        @if ($errors->any())
-            <div style="color: red;">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }} </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        </table>
 
-        <fieldset>
-            <legend><span class="number">1</span> Información de los papas</legend>
-            <label for="name_mama">Nombre de la mamá:</label>
-            <input type="text" id="name_mama" name="name_mama" required>
-
-            <label for="name_papa">Nombre del papá:</label>
-            <input type="text" id="name_papa" name="name_papa" required>
-
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-
-        </fieldset>
-
-        <fieldset>
-            <legend><span class="number">2</span> Información del bebe</legend>
-            <label for="name_bebe">Nombre del bebe:</label>
-            <input type="text" id="name_bebe" name="name_bebe" required>
-
-            <label for="birth_date">Fecha de nacimiento aprox.</label>
-            <input type="date" id="birth_date" name="birth_date" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}"
-                max="{{ Carbon\Carbon::now()->addMonths(4)->format('Y-m-d') }}" required>
-            <small style="color: #AAA" id="emailHelp" class="form-text text-muted">Para hacer el babyshower, debes tener
-                por lo menos 5 meses de embarazo</small>
-
-        </fieldset>
-
-
-
-        <button type="submit">¡Crear mi Babyshower!</button>
 
     </form>
 
+    <script>
+
+    </script>
 </body>
 
 </html>

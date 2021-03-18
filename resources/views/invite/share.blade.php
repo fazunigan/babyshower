@@ -180,13 +180,14 @@
             </tr>
             @foreach ($baby->products as $key => $product)
                 <tr>
-                    <td width="60%"><a href="https://www.babytuto.com/productos/{{$product->uri}}" target="_blank">{{$product->name}}</a></td>
-                    <td width="20%">${{number_format($product->price,0,',','.')}}</td>
+                    <td width="60%"><a href="https://www.babytuto.com/productos/{{ $product->uri }}"
+                            target="_blank">{{ $product->name }}</a></td>
+                    <td width="20%">${{ number_format($product->price, 0, ',', '.') }}</td>
                     <td width="20%">
-                        @if($product->sold==0)
-                            <button @click.stop="comprar($event, {{$product->id}})">¡Comprar!</button>
+                        @if ($product->pivot->sold == 1)
+                        Producto vendido <br>:(
                         @else
-                            Producto vendido :(
+                            <a href="{{ route('buy', [$product->id, $baby->linkShare]) }}">Comprar producto</a>
                         @endif
                     </td>
                 </tr>

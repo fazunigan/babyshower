@@ -24,6 +24,13 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'Administrador',
+                'email' => 'admin@babytuto.com',
+                'password' => bcrypt('admin')
+            ));
     }
 
     /**

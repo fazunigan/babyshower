@@ -53,7 +53,7 @@
                                 <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                             <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a
-                                    href="https://laracasts.com">Administrar usuarios</a></div>
+                                    href="{{route('users.index')}}">Administrar usuarios</a></div>
                         </div>
 
                         <div class="ml-12">

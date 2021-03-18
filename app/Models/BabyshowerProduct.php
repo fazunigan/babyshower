@@ -4,18 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Babyshower extends Model
+class BabyshowerProduct extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+
+    protected $table = 'babyshower_product';
 
     protected $guarded = [];
 
     public function products(){
-        return $this->belongsToMany(Product::class, 'babyshower_product')->withPivot('sold');
+        return $this->belongsTo('App\Models\Product');
     }
-
-    
 }

@@ -59,6 +59,12 @@ npm install && npm run prod # Install and setup node modules
 
 To ease of deploy and installation on a production environment, i recommend you to use services like AWS ElasticBeanstalk or Laravel Forge.
 
+## Admin panel
+
+The credentials to access to the Admin panel are the folliwing
+- User: admin@babytuto.com
+- Password: admin
+
 ## Testing and CI/CD
 
 This project was developed using the TDD method, so, it came with a ```.github``` directory used to run Github Actions, such as;
@@ -69,6 +75,10 @@ This project was developed using the TDD method, so, it came with a ```.github``
 - Deploy to Heroku
 
 If you will use another repository provider different than Github, i HIGHLY RECOMMEND to use a CI/CD software to automatate this process (CI/CD), like Jenkins or Travis-CI.
+
+## Standards
+
+This project was built based on TDD (Test Driven Development), following strict PSR-2 Standard and DRY (Don't Repeat Yourself) Method.
 
 ## Author
 

@@ -50,33 +50,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($babyshower as $key => $baby)
                                                 <tr>
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                            Fernanda Andrae Méndez
+                                                            {{$baby->name_mama}}
                                                         </p>
                                                     </td>
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                            Felipe Zúñiga Núñez
+                                                            {{$baby->name_papa}}
                                                         </p>
                                                     </td>
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                            Mateo Zúñiga Andrae
+                                                            {{$baby->name_bebe}}
                                                         </p>
                                                     </td>
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap text-center">
-                                                            18 de Marzo de 2021<br>
-                                                            <small>En 3 días más</small>
+                                                            {{Carbon\Carbon::parse($baby->event_date)->format('d-m-Y')}}<br>
+                                                            <small>{{Carbon\Carbon::parse($baby->date_babyshower)->diffForHumans()}}</small>
                                                         </p>
                                                     </td>
                                                     <td>
-                                                        <a class="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-10 py-2 transition-colors" href="{{route('babyshowers.show',1)}}">Ver detalles</a>
+                                                        <a class="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-10 py-2 transition-colors" href="{{route('edit',$baby->linkEdit)}}">Ver detalles</a>
                                                     </td>
                                                 </tr>
-                                               
+                                               @endforeach
                                             </tbody>
                                         </table>
                                     </div>
