@@ -42,21 +42,7 @@ jobs:
        run: php artisan key:generate
  
      - name: Execute tests
-       run: vendor/bin/phpunit --verbose
-
- cd:
-    name: CodeCoverage on CodeCov
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          files: ./coverage1.xml,./coverage2.xml # optional
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+       run: vendor/bin/phpunit --verbose --coverage-html cover
 
 
  phplint:
