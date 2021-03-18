@@ -44,10 +44,7 @@ jobs:
      - name: Execute tests
        run: vendor/bin/phpunit --verbose
 
-       name: PHP Linting
 
-
-jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
