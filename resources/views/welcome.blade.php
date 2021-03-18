@@ -173,6 +173,10 @@
             <small style="color: #AAA" id="emailHelp" class="form-text text-muted">Para hacer el babyshower, debes tener
                 por lo menos 5 meses de embarazo</small>
 
+            <label for="event_date">Fecha del babyshower</label>
+            <input type="date" id="event_date" name="event_date" min="{{ Carbon\Carbon::now()->format('Y-m-d') }}"
+                max="{{ Carbon\Carbon::now()->addMonths(4)->format('Y-m-d') }}" required>
+
         </fieldset>
 
 

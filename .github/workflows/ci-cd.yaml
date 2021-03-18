@@ -4,7 +4,6 @@ on:
  push:
    branches:
      - master
-     - features/*
  pull_request:
  
 jobs:
@@ -44,6 +43,14 @@ jobs:
  
      - name: Execute tests
        run: vendor/bin/phpunit --verbose
+
+       name: PHP Linting
+
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
+        - uses: michaelw90/PHP-Lint@master
  
 ## El deploy se está haciendo en forma automática a Heroku, sin embargo, a través de
 ## este yaml se podría setear el deploy automático luego de pasar el CI correctamente.

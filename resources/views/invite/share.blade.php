@@ -180,11 +180,11 @@
             </tr>
             @foreach ($baby->products as $key => $product)
                 <tr>
-                    <td width="60%"><a href="{{$product->uri}}">{{$product->name}}</a></td>
+                    <td width="60%"><a href="https://www.babytuto.com/productos/{{$product->uri}}" target="_blank">{{$product->name}}</a></td>
                     <td width="20%">${{number_format($product->price,0,',','.')}}</td>
                     <td width="20%">
                         @if($product->sold==0)
-                            <button>¡Comprar!</button>
+                            <button @click.stop="comprar($event, {{$product->id}})">¡Comprar!</button>
                         @else
                             Producto vendido :(
                         @endif

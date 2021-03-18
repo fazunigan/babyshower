@@ -1,6 +1,8 @@
 # Babyshower app - Technical test for Babytuto.com
 
 <p align="center"><a href="https://babytuto.com" target="_blank"><img src="https://s3.babytuto.com/565e454ba662a1a8794491dd3a4c942d.png"></a></p>
+<hr>
+[![ci/cd workflow](https://github.com/fazunigan/babyshower/actions/workflows/ci-cd.yaml/badge.svg)](https://github.com/fazunigan/babyshower/actions/workflows/ci-cd.yaml)
 
 ## About Babyshower 👼🏼
 

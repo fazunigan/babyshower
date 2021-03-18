@@ -12,6 +12,6 @@ class Babyshower extends Model
     protected $guarded = [];
 
     public function products(){
-        return $this->belongsToMany(Product::class, 'babyshower_product', 'product_id', 'babyshower_id');
+        return $this->belongsToMany(Product::class, 'babyshower_product');
     }
 }
