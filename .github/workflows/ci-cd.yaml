@@ -46,8 +46,7 @@ jobs:
 
        name: PHP Linting
 
-name: PHP Linting
-on: push
+
 jobs:
   phplint:
     runs-on: ubuntu-latest
