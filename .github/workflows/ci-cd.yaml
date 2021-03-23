@@ -41,8 +41,10 @@ jobs:
      - name: Generate key
        run: php artisan key:generate
 
-     - name: Run test suite
+     - name: Xdebug Action
        uses: MilesChou/docker-xdebug@v1.1.0
+
+     - name: Run test suite
        run: ./vendor/bin/phpunit --coverage-clover coverage.xml
 
      - name: Upload coverage to Codecov
