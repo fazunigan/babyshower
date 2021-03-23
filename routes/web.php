@@ -10,11 +10,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('/babyshowers', 'App\Http\Controllers\BabyshowerController')
-    ->middleware(['auth:sanctum', 'verified'])
-    ->except('store');
-
-Route::resource('/users', 'App\Http\Controllers\UserController')
+Route::get('/babyshowers', 'App\Http\Controllers\BabyshowerController@index')
     ->middleware(['auth:sanctum', 'verified']);
 
 Route::post('/babyshowers', 'App\Http\Controllers\BabyshowerController@store')->name('babyshowers.store');

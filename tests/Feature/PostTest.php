@@ -35,6 +35,29 @@ class PostTest extends TestCase
     }
 
     /**
+     * Catch an error if user manipulates the form maliciously
+     *
+     * @return void
+     * @test
+     */
+    public function redirect_if_user_manipulates_the_babyshower_create_form_maliciously()
+    {
+        $response = $this->post('/babyshowers', [
+            'name_mama' => 'Mothers name',
+            'name_EDITED' => 'EDITED FIELD',
+            'name_papa' => 'Fathers name',
+            'email' => 'babyshower@test.cl',
+            'name_bebe' => 'Babys name',
+            'birth_date' => Carbon::now()->addMonths('2'),
+            'event_date' => Carbon::now()->addDays('10'),
+        ]);
+
+        $response->assertRedirect('/');
+        $this->assertCount(0, Babyshower::all());
+
+    }
+
+    /**
      * Test if all the required fileds are filled
      *
      * @return void
