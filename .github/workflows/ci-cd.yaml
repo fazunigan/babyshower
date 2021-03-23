@@ -42,6 +42,7 @@ jobs:
        run: php artisan key:generate
 
      - name: Run test suite
+       uses: MilesChou/docker-xdebug@v1.1.0
        run: ./vendor/bin/phpunit --coverage-clover coverage.xml
 
      - name: Upload coverage to Codecov
