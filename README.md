@@ -4,7 +4,9 @@
 <hr>
 <p align="center"><a href="https://github.com/fazunigan/babyshower/actions/workflows/ci-cd.yaml" target="_blank"><img src="https://github.com/fazunigan/babyshower/actions/workflows/ci-cd.yaml/badge.svg"></a></p>
 
-<p align="center"><img src="https://codecov.io/gh/fazunigan/babyshower/branch/master/graph/badge.svg)"></p>
+<a href="https://codecov.io/gh/fazunigan/babyshower">
+  <img src="https://codecov.io/gh/fazunigan/babyshower/branch/master/graph/badge.svg?token=HV6AV2N7M9"/>
+</a>
 
 ## About Babyshower 👼🏼
 
