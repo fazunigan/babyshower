@@ -36,7 +36,7 @@ jobs:
        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
  
      - name: Install dependencies
-       run: composer install --prefer-dist --no-progress --no-suggest && composer development-enable
+       run: composer install --prefer-dist --no-progress --no-suggest
 
      - name: Generate key
        run: php artisan key:generate
