@@ -3,7 +3,8 @@
 <p align="center"><a href="https://babytuto.com" target="_blank"><img src="https://s3.babytuto.com/565e454ba662a1a8794491dd3a4c942d.png"></a></p>
 <hr>
 <p align="center"><a href="https://github.com/fazunigan/babyshower/actions/workflows/ci-cd.yaml" target="_blank"><img src="https://github.com/fazunigan/babyshower/actions/workflows/ci-cd.yaml/badge.svg"></a></p>
-[![ci/cd workflow]()]()
+
+<p align="center"><img src="https://codecov.io/gh/fazunigan/babyshower/branch/master/graph/badge.svg)"></p>
 
 ## About Babyshower 👼🏼
 
