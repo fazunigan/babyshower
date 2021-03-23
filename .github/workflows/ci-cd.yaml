@@ -36,13 +36,13 @@ jobs:
        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
  
      - name: Install dependencies
-       run: "composer install --prefer-dist --no-progress --no-suggest && composer development-enable"
+       run: composer install --prefer-dist --no-progress --no-suggest && composer development-enable
  
      - name: Generate key
        run: php artisan key:generate
  
      - name: Run test suite
-        run: "vendor/bin/phpunit --coverage-clover=coverage.xml"
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
         
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
