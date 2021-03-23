@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
+        //I will create a sample user to check the backoffice panel.
         DB::table('users')->insert(
             array(
                 'name' => 'Administrador',

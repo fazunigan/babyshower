@@ -32,6 +32,7 @@ class BabyshowerCreateRequest extends FormRequest
             'name_bebe' => 'required',
             'email' => 'required',
             'birth_date' => 'required|after:yesterday|before:'.$max,
+            'event_date' => 'required',
         ];
     }
 
@@ -45,6 +46,7 @@ class BabyshowerCreateRequest extends FormRequest
         'birth_date.required' => 'La fecha de nacimiento aproximada del bebe es obligatoria.',
         'birth_date.after' => 'La fecha de nacimiento aproximada del bebe es inválida',
         'birth_date.before' => 'La fecha de nacimiento aproximada del bebe debe ser antes de 4 meses',
+        'event_date.required' => 'La fecha del babyshower es obligatoria.',
     ];
 }
 }
